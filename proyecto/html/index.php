@@ -274,23 +274,37 @@ document.addEventListener("click", () => {
 </script>
 
 <div id="modal-solicitud" class="modal">
-  <div class="modal-contenido">
+  <div class="modal-contenido modal-dark">
+
     <button class="cerrar" onclick="cerrarModal()">✕</button>
 
-    <h2 id="modal-servicio-nombre"></h2>
+    <h2 id="modal-servicio-nombre">Solicitar servicio</h2>
+    <p class="modal-sub">
+      Confirmá la ubicación donde se realizará el servicio.
+      Podés mover el pin o editar la dirección.
+    </p>
 
     <form id="form-solicitud">
+
       <input type="hidden" name="servicio_id" id="servicio_id">
       <input type="hidden" name="lat" id="lat">
       <input type="hidden" name="lng" id="lng">
 
-      <p>📍 Ubicación del servicio</p>
-      <div id="mapa" style="height:300px; border-radius:10px;"></div>
+      <label>📍 Dirección</label>
+      <input
+        type="text"
+        id="direccion"
+        name="ubicacion1"
+        placeholder="Calle, número, barrio"
+        required
+      >
 
-      <br>
-      <button type="submit" class="btn-servicio">
+      <div id="mapa" class="mapa-modal"></div>
+
+      <button type="submit" class="btn-servicio btn-full">
         Confirmar solicitud
       </button>
+
     </form>
   </div>
 </div>
