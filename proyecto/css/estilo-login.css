@@ -1,0 +1,70 @@
+h1 {
+    margin-top: 55px;
+    margin-bottom: 45px;
+    text-align: center;
+}
+
+form {
+    display: block;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    width: 300px;
+    margin: 0 auto;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 35px 8px 8px;
+    font-size: 15px;
+}
+
+.btn-aceptar {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: var(--azul-acento);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.contra {
+    position: relative;
+}
+
+.contra input {
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 35px;
+    
+}
+
+.eye {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 16px;
+    opacity: 0.6;
+    user-select: none;
+}
+
+.eye:hover {
+    opacity: 1;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin: 8px 0;
+}

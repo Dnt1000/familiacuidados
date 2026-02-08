@@ -1,0 +1,119 @@
+GUÍA RÁPIDA – CONFIGURAR BASE DE DATOS DEL PROYECTO
+===========================================
+
+ESTE ARCHIVO TE SIRVE PARA:
+- Probar el proyecto en cualquier PC local
+- Subir el proyecto a un hosting
+- No olvidarte ningún paso importante
+
+-------------------------------------------
+PARTE 1 – PROBAR EL PROYECTO EN UNA PC LOCAL
+-------------------------------------------
+
+REQUISITOS:
+- XAMPP / WAMP / LARAGON instalado
+- Apache y MySQL corriendo
+- phpMyAdmin accesible (http://localhost/phpmyadmin)
+
+PASO 1 – Crear la base de datos
+--------------------------------
+Nombre recomendado:
+sistema_servicios
+
+SQL:
+CREATE DATABASE sistema_servicios CHARACTER SET utf8mb4;
+USE sistema_servicios;
+
+PASO 2 – Crear tabla USUARIOS
+------------------------------
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    rol ENUM('cliente','empleado','admin') NOT NULL DEFAULT 'cliente',
+    creado TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+
+);
+
+PASO 3 – Crear tabla SOLICITUDES
+--------------------------------
+CREATE TABLE solicitudes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cliente_id INT NOT NULL,
+    servicio VARCHAR(100) NOT NULL,
+    descripcion TEXT,
+    estado ENUM('pendiente','en_proceso','finalizado') DEFAULT 'pendiente',
+    creado TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (cliente_id) REFERENCES usuarios(id)
+);
+
+PASO 4 – Insertar usuario de prueba
+------------------------------------
+INSERT INTO usuarios (nombre, email, password, rol)
+VALUES ('Cliente Test', 'test@test.com', '123', 'cliente');
+
+PASO 5 – Configurar conexión PHP
+---------------------------------
+Archivo: config/db.php (ejemplo)
+
+host: localhost
+dbname: sistema_servicios
+user: root
+password: (vacío en XAMPP)
+
+PASO 6 – Probar el formulario
+------------------------------
+- Abrir el proyecto en el navegador
+- Enviar una solicitud
+- Si dice “Solicitud enviada correctamente”, está OK
+
+NOTA IMPORTANTE:
+Cada PC nueva necesita:
+- Crear la base de datos
+- Crear las tablas
+- Insertar datos de prueba
+
+-------------------------------------------
+PARTE 2 – SUBIR EL PROYECTO A HOSTING
+-------------------------------------------
+
+¿HAY SQL EN EL HOSTING?
+✔️ SÍ, SIEMPRE
+
+El hosting te da:
+- Base de datos MySQL
+- Usuario
+- Contraseña
+- phpMyAdmin o panel similar
+
+PASOS EN HOSTING:
+------------------
+1. Crear base de datos desde el panel
+2. Crear usuario de BD
+3. Asignar usuario a la BD
+4. Entrar a phpMyAdmin del hosting
+5. Ejecutar los mismos SQL:
+   - CREATE TABLE usuarios
+   - CREATE TABLE solicitudes
+6. Importar datos si hace falta
+
+CONFIGURACIÓN PHP EN HOSTING:
+------------------------------
+Cambiar SOLO estos datos:
+
+host: (ej: localhost o mysql.hosting.com)
+dbname: (el nombre que te dé el hosting)
+user: (usuario del hosting)
+password: (clave del hosting)
+
+-------------------------------------------
+TIP PRO
+-------------------------------------------
+Guardá este archivo.
+Más adelante se puede hacer:
+- Script automático de instalación
+- Exportar la BD en .sql
+- Instalador tipo “siguiente, siguiente”
+
+FIN DEL ARCHIVO

@@ -1,0 +1,77 @@
+.panel-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.panel-overlay.activo {
+    display: flex;
+}
+
+.panel-modal {
+    background: #fff;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 16px;
+    padding: 24px;
+    position: relative;
+    animation: aparecer 0.3s ease;
+}
+
+.cerrar-panel {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    border: none;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.panel-lista {
+    margin-top: 16px;
+    list-style: none;
+    padding: 0;
+}
+
+.panel-lista li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.panel-titulo {
+    margin-bottom: 10px;
+}
+
+.panel-saludo {
+    color: #555;
+    margin-bottom: 16px;
+}
+
+.panel-seccion h3 {
+    margin-bottom: 8px;
+}
+
+.panel-lista li {
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.panel-lista li:hover {
+    background: #f2f2f2;
+}

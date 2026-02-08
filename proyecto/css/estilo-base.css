@@ -1,0 +1,28 @@
+html{
+    scroll-behavior: smooth;
+}
+:root {
+    --azul-oscuro: #0f172a;
+    --azul-medio: #1e293b;
+    --azul-acento: #3b82f6;
+    --fondo: #f1f5f9; 
+}
+body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: none;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(
+        180deg,
+        #020617 0%,
+        #020617 30%,
+        #0b1220 100%
+    );
+    color: #e5e7eb;
+    font-family: system-ui, sans-serif;
+}
+body::-webkit-scrollbar{
+    width: 0;
+}
