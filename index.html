@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Cómo abrir el proyecto</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+html{
+    scroll-behavior: smooth;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+
+    background: linear-gradient(135deg, #0f172a, #1e293b, #020617);
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.div1{
+    background-color: #1e293b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.3);
+    width: 98%;
+    max-width: 1600px;
+}
+
+h1{
+    font-size: 34px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+h2{
+    font-size: 22px;
+    font-weight: 600;
+    color: #cbd5e1;
+    padding: 25px 0;
+    text-align: center;
+}
+
+h3{
+    color: #e2e8f0;
+    font-size: 18px;
+    margin-top: 10px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.link{
+    margin-top: 10px;
+    color: #38bdf8;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.link:hover{
+    color: white;
+    text-decoration: underline;
+}
+
+.pasouno, .pasodos{
+    width: 80%;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.4);
+}
+
+.instalador{
+    width: 35%;
+    padding-top: 20px;
+}
+
+.boton{
+    margin-top: 40px;
+    padding: 12px 25px;
+    background-color: #0ea5e9;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.boton:hover{
+    background-color: #0284c7;
+    transform: scale(1.05);
+}
+
+.paso{
+    display:none;
+    text-align:center;
+align-items: center;
+    flex-direction: column;
+    min-height: 75vh;
+}
+.pasocuatro{
+    width: 70%;
+    height: auto;
+    display:block;
+    margin:20px auto;
+}
+
+#paso1{
+    display:flex;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="div1">
+    <h1>Cómo abrir el proyecto</h1>
+<h3 style="color:#94a3b8; margin-bottom:20px;">
+Guía de instalación local
+</h3>
+
+    <!-- PASO 1 -->
+    <div id="paso1" class="paso">
+        <h2>Paso 1</h2>
+
+        <h3>Descargar el instalador de XAMPP Control Panel</h3>
+
+        <a href="https://www.apachefriends.org/download.html" target="_blank" class="link">
+            Hace click acá para descargar el panel de control
+        </a>
+
+        <img src="1.png" class="pasouno">
+
+        <h3>Completar los pasos del instalador</h3>
+
+        <img src="2.png" class="instalador">
+
+        <button onclick="irAPaso(2)" class="boton">
+            Terminé el Paso 1
+        </button>
+    </div>
+
+
+    <!-- PASO 2 -->
+    <div id="paso2" class="paso">
+        <h2>Paso 2</h2>
+
+        <h3>Iniciar Apache y MySQL desde el panel de XAMPP</h3>
+
+        <img src="3.png" class="pasodos">
+
+        <button onclick="irAPaso(1)" class="boton">
+            Volver al Paso 1
+        </button>
+
+        <button onclick="irAPaso(3)" class="boton">
+            Ir al Paso 3
+        </button>
+    </div>
+
+
+<!-- PASO 3 -->
+<div id="paso3" class="paso">
+    <h2>Paso 3</h2>
+
+    <h3>
+        Descargar la carpeta del proyecto desde Google Drive y pegarla dentro de:
+        <br><br>
+        <b>Disco:/xampp/htdocs</b>
+    </h3>
+
+    <a href="https://drive.google.com/file/d/1JYagqFnZ2-3sw7MaXYFzrWB6Xn-ALZDn/view?usp=sharing" 
+       target="_blank" 
+       class="link">
+       👉 Descargar proyecto
+    </a>
+
+    <button onclick="irAPaso(2)" class="boton">
+        Volver al Paso 2
+    </button>
+
+    <button onclick="irAPaso(4)" class="boton">
+        Ir al Paso 4
+    </button>
+</div>
+<!-- PASO 4 -->
+<div id="paso4" class="paso">
+    <h2>Paso 4</h2>
+
+    <h3>
+        Descargar la base de datos e importarla en phpMyAdmin
+    </h3>
+
+    <a href="https://drive.google.com/file/d/1bjGPEKbLE9Q2RGKkyVrDE-Akka-RrMHF/view?usp=sharing"
+       target="_blank"
+       class="link">
+       👉 Descargar base de datos
+    </a>
+
+   <h3 style="margin-top:25px;">
+    Luego abrir <b>http://localhost/phpmyadmin</b> y seguir estos pasos:
+</h3>
+
+<img src="4.png" class="pasocuatro">
+
+<h3>
+    1️⃣ Entrar en la pestaña <b>Importar</b><br>
+    2️⃣ Seleccionar el archivo .sql descargado<br>
+    3️⃣ Presionar <b>Continuar</b>
+</h3>
+
+    <button onclick="irAPaso(3)" class="boton">
+        Volver al Paso 3
+    </button>
+    <button onclick="irAPaso(5)" class="boton">
+    Ir al Paso 5
+</button>
+
+</div>
+<!-- PASO 5 -->
+<div id="paso5" class="paso">
+    <h2>Paso 5</h2>
+
+    <h3>
+        ¡Todo listo! 🎉<br><br>
+        Ahora abrí tu navegador y escribí:
+        <br><br>
+        <b>http://localhost/proyecto</b>
+    </h3>
+
+    <button onclick="irAPaso(4)" class="boton">
+        Volver al Paso 4
+    </button>
+
+<button onclick="irAPaso(1)" class="boton">
+    Finalizar instalación 🚀
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+function irAPaso(numero){
+
+    document.querySelectorAll(".paso").forEach(p=>{
+        p.style.display="none";
+    });
+
+    const paso = document.getElementById("paso"+numero);
+    paso.style.display="flex";
+
+    paso.scrollIntoView({
+        behavior:"smooth"
+    });
+}
+
+</script>
+
+</body>
+</html>
